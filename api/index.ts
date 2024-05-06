@@ -1,5 +1,15 @@
 const express = require("express");
+const cors = require("cors");
+
 const app = express();
+
+app.use(
+  cors({
+    origin: "https://yourdomain.com",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 
