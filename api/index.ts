@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 
 const app = express();
 
@@ -941,6 +943,48 @@ app.get("/products/iphone-15-pro-max-12345", (req, res) =>
       },
     ],
   })
+);
+
+app.get(
+  "/products/storefront/iphone-15-pro-max-12345/reviews?pageNum=0",
+  (req, res) =>
+    res.send({
+      pageNum: 0,
+      pageSize: 5,
+      totalElements: 100,
+      totalPages: 20,
+      sortDir: "asc",
+      sortField: "createdAt",
+      ratingStars: [1, 2, 3, 4, 5],
+      data: [
+        {
+          id: 1,
+          customer: { id: 1, name: "John Doe", image: "" },
+          rating: "5",
+          createAt: "2024-03-17 15:21",
+          variant: "Titan Trắng - 256GB",
+          content: "Hàng đúng chuẩn apple.",
+          images: [
+            "https://salt.tikicdn.com/cache/750x750/ts/review/7b/58/45/87c91c380ffa1678f28eb10e7929ba14.jpg.webp",
+            "https://salt.tikicdn.com/cache/750x750/ts/review/e3/77/13/d6b400e5413201bd5a57b12b47b6915f.jpg.webp",
+            "https://salt.tikicdn.com/cache/750x750/ts/review/9d/9c/84/f3c9e76d108b3ae3fac9a2f074bc41ff.jpg.webp",
+            "https://salt.tikicdn.com/cache/750x750/ts/review/04/f9/4c/8466ef308bc8a0700ddf599fd7c4471b.jpg.webp",
+            "https://salt.tikicdn.com/cache/750x750/ts/review/7b/bd/8a/d0b69ca454b3c75517e663c36d29cf9f.jpg.webp",
+          ],
+        },
+        {
+          id: 2,
+          customer: { id: 2, name: "Tony Stark", image: "" },
+          rating: "4",
+          createAt: "2024-02-10 17:32",
+          variant: "size den ",
+          content: "Đẹp.",
+          images: [
+            "https://salt.tikicdn.com/cache/750x750/ts/review/a3/1b/6c/7433bb34e9d1348179314f733787bb10.jpg.webp",
+          ],
+        },
+      ],
+    })
 );
 
 app.listen(8080, () => console.log("Server ready on port 8080."));
