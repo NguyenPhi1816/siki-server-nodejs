@@ -1,10 +1,10 @@
 import express, { Express } from 'express'
 import 'dotenv/config'
-import { setupSwagger } from './config/swaggerConfig'
-import productRoutes from './routes/productRoutes'
-import homeRoutes from './routes/homeRoutes'
-import advertisementsRoutes from './routes/advertisementRoutes'
-import categoryRoutes from './routes/categoryRoutes'
+import { setupSwagger } from '../src/config/swaggerConfig'
+import productRoutes from '../src/routes/productRoutes'
+import homeRoutes from '../src/routes/homeRoutes'
+import advertisementsRoutes from '../src/routes/advertisementRoutes'
+import categoryRoutes from '../src/routes/categoryRoutes'
 
 const cors = require('cors')
 
