@@ -1,6 +1,29 @@
 import express, { Request, Response } from 'express'
 const router = express.Router()
 
+/**
+ * @swagger
+ * /products/iphone-15-pro-max-12345:
+ *   get:
+ *     summary: Lấy thông tin chi tiết của iPhone 15 Pro Max
+ *     responses:
+ *       200:
+ *         description: Thông tin chi tiết của iPhone 15 Pro Max
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 name:
+ *                   type: string
+ *                   example: iPhone 15 Pro Max
+ *                 price:
+ *                   type: number
+ *                   example: 999
+ *                 available:
+ *                   type: boolean
+ *                   example: true
+ */
 router.route('/iphone-15-pro-max-12345').get((req: Request, res: Response) =>
   res.status(200).json({
     id: 1,
